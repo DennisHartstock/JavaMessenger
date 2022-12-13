@@ -31,9 +31,9 @@ public class LoginActivity extends AppCompatActivity {
             //launch intent to forget password screen
         });
 
-        tvSignUp.setOnClickListener(view -> {
-            //launch intent to register screen
-        });
+        tvSignUp.setOnClickListener(
+                view -> startActivity(SignupActivity.newIntent(LoginActivity.this))
+        );
     }
 
     private void initViews() {
