@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Messenger</string>
     <string name="tv_title">Messenger</string>
-    <string name="et_email">Your email:</string>
-    <string name="et_password">Your password:</string>
-    <string name="bt_login">login</string>
+    <string name="et_email">Enter your email</string>
+    <string name="et_password">Enter your password</string>
+    <string name="bt_log_in">Log in</string>
     <string name="tv_forget_password">Forget password?</string>
-    <string name="tv_register">Register</string>
+    <string name="tv_sign_in">Sign in</string>
 </resources>

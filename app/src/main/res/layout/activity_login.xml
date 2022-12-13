@@ -31,6 +31,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="@null"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
@@ -39,18 +40,19 @@
         android:layout_height="wrap_content"
         android:hint="@string/et_password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/bt_login"
+        android:autofillHints="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btLogIn"
         app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <Button
-        android:id="@+id/bt_login"
+        android:id="@+id/btLogIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/bt_login"
+        android:text="@string/bt_log_in"
         app:layout_constraintBottom_toTopOf="@+id/tvForgetPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -65,15 +67,15 @@
         android:text="@string/tv_forget_password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_login" />
+        app:layout_constraintTop_toBottomOf="@+id/btLogIn" />
 
     <TextView
-        android:id="@+id/tv_register"
+        android:id="@+id/tvSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/tv_register"
+        android:text="@string/tv_sign_in"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bt_login" />
+        app:layout_constraintTop_toBottomOf="@id/btLogIn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
