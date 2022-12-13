@@ -13,7 +13,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etPassword;
     private Button btLogIn;
     private TextView tvForgetPassword;
-    private TextView tvSignIn;
+    private TextView tvSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
             //launch intent to forget password screen
         });
 
-        tvSignIn.setOnClickListener(view -> {
+        tvSignUp.setOnClickListener(view -> {
             //launch intent to register screen
         });
     }
@@ -41,6 +41,6 @@ public class LoginActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         btLogIn = findViewById(R.id.btLogIn);
         tvForgetPassword = findViewById(R.id.tvForgetPassword);
-        tvSignIn = findViewById(R.id.tvSignIn);
+        tvSignUp = findViewById(R.id.tvSignUp);
     }
 }
