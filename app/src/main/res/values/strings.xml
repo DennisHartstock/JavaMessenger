@@ -1,14 +1,16 @@
 <resources>
     <string name="app_name">Messenger</string>
-    <string name="tv_title">Messenger</string>
-    <string name="et_email">Enter your email</string>
-    <string name="et_password">Enter your password</string>
+    <string name="tv_login_title">Messenger</string>
+    <string name="et_login_email">Enter your email</string>
+    <string name="et_login_password">Enter your password</string>
     <string name="bt_log_in">Log in</string>
-    <string name="tv_forget_password">Forget password?</string>
-    <string name="tv_sign_up">Sign up</string>
-    <string name="tv_title_signup">Signup</string>
-    <string name="et_email_signup">Email</string>
-    <string name="et_password_signup">Password</string>
-    <string name="et_name_signup">Name</string>
+    <string name="tv_login_forget_password">Forget password?</string>
+    <string name="tv_login_sign_up">Sign up</string>
+    <string name="tv_signup_title">Signup</string>
+    <string name="et_signup_email">Email</string>
+    <string name="et_signup_password">Password</string>
+    <string name="et_signup_name">Name</string>
     <string name="bt_sign_up">Sign up</string>
+    <string name="tv_forget_password_title">Forget password?</string>
+    <string name="bt_reset_password">reset password</string>
 </resources>

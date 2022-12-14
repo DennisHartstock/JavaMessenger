@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private EditText etEmailSignup;
-    private EditText etPasswordSignup;
-    private EditText etNameSignup;
+    private EditText etEmail;
+    private EditText etPassword;
+    private EditText etName;
     private Button btSignUp;
 
     public static Intent newIntent(Context context) {
@@ -26,17 +26,17 @@ public class SignupActivity extends AppCompatActivity {
         initViews();
 
         btSignUp.setOnClickListener(view -> {
-            String emailSignup = getTrimmedValue(etEmailSignup);
-            String passwordSignup = getTrimmedValue(etPasswordSignup);
-            String nameSignup = getTrimmedValue(etNameSignup);
+            String email = getTrimmedValue(etEmail);
+            String password = getTrimmedValue(etPassword);
+            String name = getTrimmedValue(etName);
             //sign up
         });
     }
 
     private void initViews() {
-        etEmailSignup = findViewById(R.id.etEmailSignup);
-        etPasswordSignup = findViewById(R.id.etPasswordSignup);
-        etNameSignup = findViewById(R.id.etNameSignup);
+        etEmail = findViewById(R.id.etEmail);
+        etPassword = findViewById(R.id.etPassword);
+        etName = findViewById(R.id.etName);
         btSignUp = findViewById(R.id.btSignUp);
     }
 

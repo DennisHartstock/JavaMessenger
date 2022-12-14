@@ -16,34 +16,34 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tv_title_signup"
+            android:text="@string/tv_signup_title"
             android:textAlignment="center"
             android:textColor="@color/purple_500"
             android:textSize="48sp" />
 
         <EditText
-            android:id="@+id/etEmailSignup"
+            android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:autofillHints="@null"
-            android:hint="@string/et_email_signup"
+            android:hint="@string/et_signup_email"
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/etPasswordSignup"
+            android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="@null"
-            android:hint="@string/et_password_signup"
+            android:hint="@string/et_signup_password"
             android:inputType="textPassword" />
 
         <EditText
-            android:id="@+id/etNameSignup"
+            android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="@null"
-            android:hint="@string/et_name_signup"
+            android:hint="@string/et_signup_name"
             android:inputType="textCapWords" />
 
         <Button
