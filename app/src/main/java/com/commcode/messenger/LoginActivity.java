@@ -27,9 +27,10 @@ public class LoginActivity extends AppCompatActivity {
             //login
         });
 
-        tvForgetPassword.setOnClickListener(view -> {
-            //launch intent to forget password screen
-        });
+        tvForgetPassword.setOnClickListener(view -> startActivity(ResetPasswordActivity.newIntent(
+                LoginActivity.this,
+                etEmail.getText().toString().trim())
+        ));
 
         tvSignUp.setOnClickListener(
                 view -> startActivity(SignupActivity.newIntent(LoginActivity.this))
