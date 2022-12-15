@@ -56,7 +56,8 @@ public class LoginActivity extends AppCompatActivity {
         });
         loginViewModel.getUser().observe(this, firebaseUser -> {
             if (firebaseUser != null) {
-                Toast.makeText(LoginActivity.this, "Authorized", Toast.LENGTH_SHORT).show();
+                startActivity(UsersActivity.newIntent(LoginActivity.this));
+                finish();
             }
         });
     }
