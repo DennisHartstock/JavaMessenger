@@ -1,5 +1,7 @@
 package com.commcode.messenger;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -68,5 +70,9 @@ public class LoginActivity extends AppCompatActivity {
         btLogIn = findViewById(R.id.btLogIn);
         tvForgetPassword = findViewById(R.id.tvForgetPassword);
         tvSignUp = findViewById(R.id.tvSignUp);
+    }
+
+    public static Intent newIntent(Context context) {
+        return new Intent(context, LoginActivity.class);
     }
 }
