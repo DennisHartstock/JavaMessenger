@@ -1,5 +1,6 @@
 package com.commcode.messenger;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -22,11 +23,11 @@ public class SignupViewModel extends ViewModel {
         });
     }
 
-    public MutableLiveData<String> getError() {
+    public LiveData<String> getError() {
         return error;
     }
 
-    public MutableLiveData<FirebaseUser> getUser() {
+    public LiveData<FirebaseUser> getUser() {
         return user;
     }
 

@@ -14,4 +14,5 @@
     <string name="tv_forget_password_title">Forget password?</string>
     <string name="bt_reset_password">reset password</string>
     <string name="menu_item_log_out">Log out</string>
+    <string name="toast_reset_link_sent">The reset link has been successfully sent on your email</string>
 </resources>
