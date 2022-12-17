@@ -2,9 +2,9 @@ package com.commcode.messenger;
 
 public class User {
 
-    private String id;
-    private String name;
-    private Boolean isOnline;
+    private final String id;
+    private final String name;
+    private final Boolean isOnline;
 
     public User(String id, String name, Boolean isOnline) {
         this.id = id;
