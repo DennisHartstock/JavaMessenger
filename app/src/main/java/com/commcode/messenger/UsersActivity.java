@@ -9,8 +9,16 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class UsersActivity extends AppCompatActivity {
+
+    private RecyclerView rvUsers;
+    private UsersAdapter usersAdapter;
 
     private UsersViewModel viewModel;
 
@@ -18,9 +26,22 @@ public class UsersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
-
+        initViews();
         viewModel = new ViewModelProvider(this).get(UsersViewModel.class);
         observeViewModel();
+
+        List<User> users = new ArrayList<>();
+        for (int i = 0; i < 30; i++) {
+            User user = new User("id " + i, "name " + i, new Random().nextBoolean());
+            users.add(user);
+        }
+        usersAdapter.setUsers(users);
+    }
+
+    private void initViews() {
+        rvUsers = findViewById(R.id.rvUsers);
+        usersAdapter = new UsersAdapter();
+        rvUsers.setAdapter(usersAdapter);
     }
 
     private void observeViewModel() {

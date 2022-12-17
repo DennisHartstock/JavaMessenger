@@ -20,7 +20,7 @@ public class User {
         return name;
     }
 
-    public Boolean getOnline() {
+    public Boolean isOnline() {
         return isOnline;
     }
 }

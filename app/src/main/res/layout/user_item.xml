@@ -22,6 +22,7 @@
             tools:text="Name" />
 
         <View
+            android:id="@+id/viewOnlineStatus"
             android:layout_width="12dp"
             android:layout_height="12dp"
             android:layout_margin="16dp"
