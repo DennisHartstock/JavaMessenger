@@ -3,6 +3,7 @@ package com.commcode.messenger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -11,9 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class UsersActivity extends AppCompatActivity {
 
@@ -22,20 +25,37 @@ public class UsersActivity extends AppCompatActivity {
 
     private UsersViewModel viewModel;
 
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = database.getReference("Users");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
+
+        for (int i = 0; i < 10; i++) {
+            User user = new User("id" + i, "name" + i, false);
+            databaseReference.push().setValue(user);
+        }
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    User value = dataSnapshot.getValue(User.class);
+                    Log.d("UsersActivity", String.valueOf(value));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.d("UsersActivity", "Failed to read value " + error.toException());
+            }
+        });
+
         initViews();
         viewModel = new ViewModelProvider(this).get(UsersViewModel.class);
         observeViewModel();
-
-        List<User> users = new ArrayList<>();
-        for (int i = 0; i < 30; i++) {
-            User user = new User("id " + i, "name " + i, new Random().nextBoolean());
-            users.add(user);
-        }
-        usersAdapter.setUsers(users);
     }
 
     private void initViews() {

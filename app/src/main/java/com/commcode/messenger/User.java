@@ -1,10 +1,16 @@
 package com.commcode.messenger;
 
+import androidx.annotation.NonNull;
+
 public class User {
 
-    private final String id;
-    private final String name;
-    private final Boolean isOnline;
+    private String id;
+    private String name;
+    private Boolean isOnline;
+
+    public User() {
+
+    }
 
     public User(String id, String name, Boolean isOnline) {
         this.id = id;
@@ -22,5 +28,15 @@ public class User {
 
     public Boolean isOnline() {
         return isOnline;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", isOnline=" + isOnline +
+                '}';
     }
 }
