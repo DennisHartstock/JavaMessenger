@@ -43,12 +43,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User user = users.get(position);
         holder.tvName.setText(user.getName());
-        int bgResId;
-        if (user.isOnline()) {
-            bgResId = R.drawable.circle_green;
-        } else {
-            bgResId = R.drawable.circle_red;
-        }
+        int bgResId = R.drawable.circle_green;
+        //NullPointerException
+//        if (user.isOnline()) {
+//            bgResId = R.drawable.circle_green;
+//        } else {
+//            bgResId = R.drawable.circle_red;
+//        }
         Drawable background = ContextCompat.getDrawable(holder.itemView.getContext(), bgResId);
         holder.viewOnlineStatus.setBackground(background);
 
