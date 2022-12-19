@@ -2,12 +2,12 @@ package com.commcode.messenger;
 
 public class Message {
 
-    private String message;
+    private String text;
     private String senderId;
     private String receiverId;
 
-    public Message(String message, String senderId, String receiverId) {
-        this.message = message;
+    public Message(String text, String senderId, String receiverId) {
+        this.text = text;
         this.senderId = senderId;
         this.receiverId = receiverId;
     }
@@ -16,8 +16,8 @@ public class Message {
 
     }
 
-    public String getMessage() {
-        return message;
+    public String getText() {
+        return text;
     }
 
     public String getSenderId() {
