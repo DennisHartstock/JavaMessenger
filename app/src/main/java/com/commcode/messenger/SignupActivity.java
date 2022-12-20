@@ -59,7 +59,7 @@ public class SignupActivity extends AppCompatActivity {
         });
         signupViewModel.getUser().observe(this, firebaseUser -> {
             if (firebaseUser != null) {
-                startActivity(UsersActivity.newIntent(SignupActivity.this));
+                startActivity(UsersActivity.newIntent(SignupActivity.this, firebaseUser.getUid()));
                 finish();
             }
         });

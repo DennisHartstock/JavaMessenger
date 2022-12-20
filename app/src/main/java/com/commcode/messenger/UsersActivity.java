@@ -13,19 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class UsersActivity extends AppCompatActivity {
 
+    private static final String EXTRA_CURRENT_USER_ID = "current_id";
+
     private RecyclerView rvUsers;
     private UsersAdapter usersAdapter;
 
     private UsersViewModel viewModel;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users);
+    private String currentUserId;
 
-        initViews();
-        viewModel = new ViewModelProvider(this).get(UsersViewModel.class);
-        observeViewModel();
+    public static Intent newIntent(Context context, String currentUserId) {
+        Intent intent = new Intent(context, UsersActivity.class);
+        intent.putExtra(EXTRA_CURRENT_USER_ID, currentUserId);
+        return intent;
     }
 
     private void initViews() {
@@ -58,7 +58,20 @@ public class UsersActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static Intent newIntent(Context context) {
-        return new Intent(context, UsersActivity.class);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_users);
+        initViews();
+
+        currentUserId = getIntent().getStringExtra(EXTRA_CURRENT_USER_ID);
+        viewModel = new ViewModelProvider(this).get(UsersViewModel.class);
+        observeViewModel();
+
+        usersAdapter.setOnUserClickListener(user -> startActivity(ChatActivity.newIntent(
+                UsersActivity.this,
+                currentUserId,
+                user.getId()
+        )));
     }
 }
