@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -29,6 +30,8 @@ public class ChatActivity extends AppCompatActivity {
 
     private String currentUserId;
     private String otherUserId;
+
+    private ChatViewModel viewModel;
 
     public static Intent newIntent(Context context, String currentUserId, String otherUserId) {
         Intent intent = new Intent(context, ChatActivity.class);
@@ -51,6 +54,7 @@ public class ChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
         initViews();
 
+        viewModel = new ViewModelProvider(this).get(ChatViewModel.class);
         currentUserId = getIntent().getStringExtra(EXTRA_CURRENT_USER_ID);
         otherUserId = getIntent().getStringExtra(EXTRA_OTHER_USER_ID);
         messagesAdapter = new MessagesAdapter(currentUserId);
