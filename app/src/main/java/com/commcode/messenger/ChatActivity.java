@@ -2,6 +2,7 @@ package com.commcode.messenger;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -69,7 +71,29 @@ public class ChatActivity extends AppCompatActivity {
                 etMessage.setText("");
             }
         });
-        viewModel.getOtherUser().observe(this, user -> tvTitle.setText(user.getName()));
+        viewModel.getOtherUser().observe(this, user -> {
+            tvTitle.setText(user.getName());
+            int bgResId;
+            if (user.isOnline()) {
+                bgResId = R.drawable.circle_green;
+            } else {
+                bgResId = R.drawable.circle_red;
+            }
+            Drawable background = ContextCompat.getDrawable(ChatActivity.this, bgResId);
+            viewOnlineStatus.setBackground(background);
+        });
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        viewModel.setUserOnline(true);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        viewModel.setUserOnline(false);
     }
 
     public static Intent newIntent(Context context, String currentUserId, String otherUserId) {

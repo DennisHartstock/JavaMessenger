@@ -6,16 +6,16 @@ public class User {
 
     private String id;
     private String name;
-    private Boolean isOnline;
+    private Boolean online;
 
     public User() {
 
     }
 
-    public User(String id, String name, Boolean isOnline) {
+    public User(String id, String name, Boolean online) {
         this.id = id;
         this.name = name;
-        this.isOnline = isOnline;
+        this.online = online;
     }
 
     public String getId() {
@@ -27,7 +27,7 @@ public class User {
     }
 
     public Boolean isOnline() {
-        return isOnline;
+        return online;
     }
 
     @NonNull
@@ -36,7 +36,7 @@ public class User {
         return "User{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", isOnline=" + isOnline +
+                ", isOnline=" + online +
                 '}';
     }
 }
